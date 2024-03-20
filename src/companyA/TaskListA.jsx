@@ -6,6 +6,7 @@ import { FaEye } from "react-icons/fa";
 import { FaDumbbell } from "react-icons/fa6";
 import { CiBookmarkCheck } from "react-icons/ci";
 import { VscFeedback } from "react-icons/vsc";
+import RENDER_API_URL from '../_helpers';
 
 const TaskListA = ({ email }) => {
 
@@ -14,7 +15,7 @@ const TaskListA = ({ email }) => {
 
   useEffect(() => {
 
-    axios.post('http://localhost:8080/api/me', { email }) // Send a POST request with email in the body
+    axios.post(`${RENDER_API_URL}/api/me`, { email }) // Send a POST request with email in the body
       .then(response => {
         const user = response.data; // Access the user data from the response
         const tasks = user.tasks; // Access the tasks array from the user object

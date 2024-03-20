@@ -9,6 +9,9 @@ import UserDashboardHeader from './UserDashboardHeader';
 import { useUser } from '@clerk/clerk-react';
 
 
+
+
+
 const UserDashboard = () => {
 
   const { user } = useUser();
@@ -21,7 +24,8 @@ const UserDashboard = () => {
 
   //  const [refreshState , setRefereshState] = useState(true)
   //  const [moneyEarned , setMoneyEarned] = useState()
-  
+
+ 
 
   useEffect(() => {
      
@@ -34,11 +38,13 @@ const UserDashboard = () => {
 
       const userEmail = user.primaryEmailAddress.emailAddress
 
-     await axios.post('http://localhost:8080/api/me', { email : userEmail }) // Send a POST request with email in the body
+     await axios.post('https://intellicrowd-main-backend.onrender.com/api/me', { email : userEmail }) // Send a POST request with email in the body
      .then(response => {
       const user = response.data; // Access the user data from the response
       setUserData(user)
-     const money = user.tasks[0].earnedMoney // Access the tasks array from the user object
+    //  const money = user.tasks[0].earnedMoney // Access the tasks array from the user object
+
+       console.log(user)
 
       // console.log(tasks);
       // setMoneyEarned(money)
@@ -54,10 +60,53 @@ const UserDashboard = () => {
       
     };
 
-    fetchData()
-
+    // fetchData()
 
   }, [])
+
+  useEffect(() => {
+    // Delay the execution of useEffect by 2 seconds (adjust as needed)
+    const delay = setTimeout(() => {
+      fetchData();
+    }, 2000);
+  
+    // Clean up the timeout to avoid memory leaks
+    return () => clearTimeout(delay);
+  }, []); // Run useEffect only once on component mount
+
+
+  const fetchData = async () => {
+
+      
+    console.log(user.primaryEmailAddress.emailAddress)
+
+    setEmail(user.primaryEmailAddress.emailAddress)
+
+    const userEmail = user.primaryEmailAddress.emailAddress
+
+   await axios.post('https://intellicrowd-main-backend.onrender.com/api/me', { email : userEmail }) // Send a POST request with email in the body
+   .then(response => {
+    const user = response.data; // Access the user data from the response
+    setUserData(user)
+  //  const money = user.tasks[0].earnedMoney // Access the tasks array from the user object
+
+     console.log(user)
+
+    // console.log(tasks);
+    // setMoneyEarned(money)
+
+     
+
+    // Do something with the tasks data, e.g., display it in your UI
+  })
+  .catch(error => {
+    console.error(error);
+    // Handle errors gracefully, e.g., display an error message to the user
+  });
+    
+  };
+  
+  
 
   
   return (

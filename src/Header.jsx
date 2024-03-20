@@ -2,6 +2,7 @@ import React , {useEffect, useState} from 'react'
 import {Link} from 'react-router-dom'
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import RENDER_API_URL from './_helpers';
 
 
 const Header = () => {
@@ -17,7 +18,7 @@ const Header = () => {
     useEffect(() => {
       // window.location.reload() 
 
-      axios.post('http://localhost:8080/api/me', { email : UserName }) // Send a POST request with email in the body
+      axios.post(`${RENDER_API_URL}/api/me`, { email : UserName }) // Send a POST request with email in the body
       .then(response => {
         const user = response.data; // Access the user data from the response
        const money = user.tasks[0].earnedMoney // Access the tasks array from the user object

@@ -4,6 +4,7 @@ import { useUser } from '@clerk/clerk-react';
 import { Link } from 'react-router-dom'
 import "./taskA.css"
 import { exerciseTaskADataArray } from './ExerciseTaskData'
+import RENDER_API_URL from '../_helpers';
 
 
 // let recentSubmissionTimes = [];  // Track the last few submission timestamps
@@ -183,7 +184,7 @@ const ExerciseTaskA = () => {
 
 
     const exerciseCompletes = () => {
-        axios.patch('http://localhost:8080/api/task-update-exercise-done', { email, taskName })
+        axios.patch(`${RENDER_API_URL}/api/task-update-exercise-done`, { email, taskName })
             .then(response => {
                 console.log('Task updated successfully!');
                 // Handle the updated tasks data if needed

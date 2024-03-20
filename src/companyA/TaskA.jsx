@@ -4,6 +4,7 @@ import { useUser } from '@clerk/clerk-react';
 import { Link } from 'react-router-dom'
 import "./taskA.css"
 import { spamArr } from './SpamScoreData'
+import RENDER_API_URL from '../_helpers';
 
 
 let recentSubmissionTimes = [];  // Track the last few submission timestamps
@@ -59,7 +60,7 @@ const TaskA = () => {
 
       
       try {
-        axios.post('http://localhost:8080/api/me', { email }) // Send a POST request with email in the body
+        axios.post(`${RENDER_API_URL}/api/me`, { email }) // Send a POST request with email in the body
           .then(response => {
             const user = response.data; // Access the user data from the response
             const currentSpamScore = user.tasks.find(task => task.name === taskName).spamScore;
@@ -99,7 +100,7 @@ const TaskA = () => {
       // setError(null);
 
       try {
-        const response = await axios.get('http://localhost:8080/api/random');
+        const response = await axios.get(`${RENDER_API_URL}/api/random`);
         setQuerry(response.data[0].tweet);
         setRandomTaskObj(response.data[0])
       } catch (error) {
@@ -120,7 +121,7 @@ const TaskA = () => {
 
 
     try {
-      const response = await axios.get('http://localhost:8080/api/random');
+      const response = await axios.get(`${RENDER_API_URL}/api/random`);
 
       // condition to show spam tweet 
       if (Math.random() < 0.26) {
@@ -188,7 +189,7 @@ const TaskA = () => {
         console.log("Warning: Frequent task submissions detected.");
         
          // updating earned amount
-         axios.patch('http://localhost:8080/api-ban/submit-spam-user', { email, taskName })
+         axios.patch(`${RENDER_API_URL}/api-ban/submit-spam-user`, { email, taskName })
          .then(response => {
            console.log('user banned successfully');
            // Handle successful response, e.g., update UI to reflect the increased earn money
@@ -247,7 +248,7 @@ const TaskA = () => {
 
           // code to reduce spamScore as user is not spamming.
 
-          axios.patch('http://localhost:8080/api-spam/reduce', { email, taskName })
+          axios.patch(`${RENDER_API_URL}/api-spam/reduce`, { email, taskName })
           .then(response => {
             console.log('Spam score reduced successfully!');
             // Handle successful response, e.g., update UI
@@ -272,7 +273,7 @@ const TaskA = () => {
           // console.log("spam score : " + spamScore)
 
 
-          axios.patch('http://localhost:8080/api-spam/increase', { email, taskName })
+          axios.patch(`${RENDER_API_URL}/api-spam/increase`, { email, taskName })
             .then(response => {
               console.log('Spam score reduced successfully!');
               // Handle successful response, e.g., update UI
@@ -292,7 +293,7 @@ const TaskA = () => {
 
         // submiting the annotated data to result collection 
         try {
-          const response = await axios.post('http://localhost:8080/api/submit', userInput);
+          const response = await axios.post(`${RENDER_API_URL}/api/submit`, userInput);
           //console.log(response.data);
           // Handle success (e.g., clear form, show success message)
         } catch (err) {
@@ -302,7 +303,7 @@ const TaskA = () => {
 
         // updating the fetchTask collection ( isAnnotate : true )
         try {
-          const response = await axios.patch(`http://localhost:8080/api/task/${randomTaskObj._id}`, { isAnnotate: userInput.isAnnotate })
+          const response = await axios.patch(`${RENDER_API_URL}/api/task/${randomTaskObj._id}`, { isAnnotate: userInput.isAnnotate })
             .then(response => {
               console.log('Task updated:', response.data);
               // Handle the updated task as needed
@@ -316,7 +317,7 @@ const TaskA = () => {
 
 
         // updating earned amount
-        axios.patch('http://localhost:8080/api-earn/earn', { email, taskName })
+        axios.patch(`${RENDER_API_URL}/api-earn/earn`, { email, taskName })
         .then(response => {
           console.log('Earn money increased successfully!');
           // Handle successful response, e.g., update UI to reflect the increased earn money
