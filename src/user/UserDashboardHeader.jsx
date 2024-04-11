@@ -2,10 +2,38 @@ import { UserButton } from '@clerk/clerk-react'
 import React , {useEffect , useState} from 'react'
 import { Link } from 'react-router-dom'
 import Sidebar from './userDashboardComponents/Sidebar'
+import axios from 'axios'
+import RENDER_API_URL from '../_helpers'
 
 const UserDashboardHeader = ({email , userData}) => {
 
-   // console.log(userData)
+   // console.log(userData.tasks[0].earnedMoney)
+
+
+   const [earnedMoney , setEarnedMoney] = useState()
+
+
+
+   useEffect(() => {
+
+      try {
+         axios.post(`${RENDER_API_URL}/api/me`, { email }) // Send a POST request with email in the body
+           .then(response => {
+             const user = response.data; // Access the user data from the response
+             console.log(user.tasks[0].earnedMoney); // Logs the user data to the console
+             setEarnedMoney(user.tasks[0].earnedMoney)
+
+           })
+ 
+          
+      
+ 
+       } catch (error) {
+         console.error(error);
+       }
+    
+   }, [])
+   
  
 
   return (
@@ -16,7 +44,7 @@ const UserDashboardHeader = ({email , userData}) => {
            
             <div className='flex items-center justify-center gap-4'> 
 
-               <div> <Sidebar></Sidebar></div> 
+               <div> <Sidebar earnedMoney={earnedMoney}></Sidebar></div> 
                   
                <p className='text-[16px]  font-bold'>IntelliCrowd</p>
             </div>
@@ -30,7 +58,7 @@ const UserDashboardHeader = ({email , userData}) => {
              }
              
              <p className='cursor-pointer' >Refresh</p>
-             <p>Total Earning : <b> {1} Rs</b> </p>
+             <p>Total Earning : <b> {earnedMoney} Rs</b> </p>
 
              <UserButton />
 

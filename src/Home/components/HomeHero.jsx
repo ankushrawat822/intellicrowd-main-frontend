@@ -29,7 +29,8 @@ const HomeHero = () => {
 
      <div className='bg-[#161616] w-screen'>
      <div className='home-hero-bg-image flex flex-col items-center justify-center text-center text-white py-16 rounded-[32px]  lg:mx-40 '>
-            <p className='font-semibold text-[19px] lg:text-[28px] italic'>India's  #1</p>
+            {/* <p className='font-semibold text-[19px] lg:text-[28px] italic'>India's  #1</p> */}
+             <p className='font-semibold text-[19px] lg:text-[28px] italic'></p>
             <p className='font-bold text-[23px] lg:text-[30px]'>CrowdSourcing for AI Companies</p>
             <p className='mt-1 font-semibold'>Earn Money by Completing Tasks</p>
         </div>
