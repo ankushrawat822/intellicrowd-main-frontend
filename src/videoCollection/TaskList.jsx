@@ -8,7 +8,7 @@ import { CiBookmarkCheck } from "react-icons/ci";
 import { VscFeedback } from "react-icons/vsc";
 import RENDER_API_URL from '../_helpers';
 
-const TaskListA = ({ email }) => {
+const TaskList = ({ email }) => {
 
   const [tasksData, setTasksData] = useState([])
 
@@ -48,36 +48,36 @@ const TaskListA = ({ email }) => {
   return (
     <>
       {/* THIS IS MY USER DASHBOARD => TAKS LISTING UI */}
-      <div className='bg-white flex items-start justify-between  px-5 py-4 task-box-shadow rounded-[14px] '>
+      <div className=' my-4 bg-white flex items-start justify-between  px-5 py-4 task-box-shadow rounded-[14px] '>
         {/* div 1 => title , btns  */}
         <div className=' flex items-start flex-col justify-between gap-3'>
-          <b className='text-[21px]'>Mark Offensive </b>
-          <div className='flex items-center justify-center gap-4 text-[19px]'>
+          <b className='text-[21px]'>Upload Video</b>
+          {/* <div className='flex items-center justify-center gap-4 text-[19px]'>
             <FaEye className='text-gray-600'></FaEye>
             <Link to="/companyA/exercise/TaskA"><FaDumbbell className='text-gray-600'></FaDumbbell></Link>
             <CiBookmarkCheck></CiBookmarkCheck>
             <VscFeedback></VscFeedback>
 
-          </div>
-          <span className="inline-flex items-center rounded-md bg-purple-50 px-2 py-1  text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10">
-         Text Annotation
+          </div> */}
+          <span className="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+        Video Collection
       </span>
           {/* only show this when user is qualified to do the task, that is after training and qualifying process */}
           {/* <Link to='/companyA/TaskA'><button className='bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded'>Start </button></Link> */}
 
           {
-            tasksData[0]?.exerciseDone ? ( <Link to='/companyA/TaskA'><button className='bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded'>Start </button></Link>) : 
+            tasksData[0]?.exerciseDone ? ( <Link to='/video-collection/task'><button className='bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded'>Start </button></Link>) : 
             ( <Link to='/companyA/exercise/TaskA'><button className='bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded'>Exercise </button></Link>)
           }
         </div>
 
         {/* div 2 => discription , tips   */}
         <div className='text-justify  lg:w-[70%] flex items-start justify-start flex-col gap-4'>
-          <p>Judge text content based on its potential offensiveness. In this task, users are presented with queries or sentences, and their role is to determine whether the provided text contains offensive language or content.</p>
+          <p>Help train an AI application to scan human face.</p>
           <div className='flex items-start justify-center gap-8'>
-            <p>Earn : <b>0.43 Rs/Task</b></p>
-            <p>Task : <b>1.3k</b></p>
-            <p>Time : <b>10 sec</b></p>
+            <p>Earn : <b>40 Rs/Task</b></p>
+            <p>Task : <b>5</b></p>
+            <p>Time : <b>1 min</b></p>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ const TaskListA = ({ email }) => {
   )
 }
 
-export default TaskListA
+export default TaskList
 
 
 // task -> title , discription , available hits , money per hit , time per hit , hit preview btn ,  hit exercise btn.

@@ -17,6 +17,7 @@ import UserLogin from "./user/Login"
 import UserSignup from "./user/Signup"
 import { RedirectToSignIn, SignedIn, SignedOut } from '@clerk/clerk-react'
 import RedirectToHome from './Helper/RedirectToHome'
+import Task from './videoCollection/Task'
 
 // testing
 
@@ -77,6 +78,23 @@ function App() {
         
           </>}  />
 
+
+          {/* video collection task */}
+
+          <Route path='/video-collection/task' element={
+          <>
+           <SignedIn>
+             <Task></Task>
+           </SignedIn>
+
+
+           <SignedOut>
+             <RedirectToHome></RedirectToHome>
+           </SignedOut>
+
+        
+          </>}  />
+
          {/* taskA routes frontend */}
           {/* <Route path='/companyA/TaskA' element={<><TaskA></TaskA></>}  /> */}
           {/* <Route path='/companyA/exercise/TaskA' element={<><ExerciseTaskA></ExerciseTaskA></>} /> */}
@@ -102,6 +120,9 @@ function App() {
 }
 
 export default App
+
+
+//  video collection task
 
 // todo :
 // 1> create user dashboard -> task list , total earn money , 

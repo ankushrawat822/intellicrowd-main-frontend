@@ -7,6 +7,8 @@ import UserDashboardHeader from './UserDashboardHeader';
 
 // clerk
 import { useUser } from '@clerk/clerk-react';
+import TaskListA2 from '../companyA/TaskListA2';
+import TaskList from '../videoCollection/TaskList';
 
 
 
@@ -120,6 +122,8 @@ const UserDashboard = () => {
         {/* <p>{userEmail}</p> */}
             {/*  map of all tasks ( for this testing there will be only one ) */}
              <TaskListA email={email}></TaskListA>
+             {/* <TaskListA2 email={email}></TaskListA2> */}
+             <TaskList email={email}></TaskList>
             
         </div>
     </div>
