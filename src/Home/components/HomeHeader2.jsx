@@ -220,9 +220,14 @@ const HomeHeader2 = () => {
           {/* <Button variant="text" size="sm" color="white">
             Log In
           </Button> */}
+          <Link to="/client-login">
+
           <Button variant="gradient" color="red" size="sm">
            CLIENT SIGN IN
           </Button>
+
+          </Link>
+         
         </div>
         <IconButton
           variant="text"

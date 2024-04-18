@@ -64,10 +64,10 @@ const Login = () => {
                         <div className="mx-5 mb-7 border dark:border-b-white/50 dark:border-t-white/50 border-b-white/20 sm:border-t-white/20  rounded-lg border-white/20 border-l-white/20 border-r-white/20  lg:rounded-xl ">
                             <div className="flex flex-col p-6">
                                 <h3 className="text-xl font-semibold leading-6 tracking-tighter">
-                                    Login
+                                    Client's Login
                                 </h3>
                                 <p className="mt-1.5 text-sm font-medium text-white/50">
-                                    Welcome back, enter your credentials to continue.
+                                    Welcome to IntelliCrowd, Please login to continue.
                                 </p>
                             </div>
                             <div className="p-6 pt-0">
@@ -77,13 +77,13 @@ const Login = () => {
                                             <div className="group relative rounded-lg border focus-within:border-sky-200 px-3 pb-1.5 pt-2.5 duration-200 focus-within:ring focus-within:ring-sky-300/30">
                                                 <div className="flex justify-between">
                                                     <label className="text-xs font-medium text-muted-foreground group-focus-within:text-white text-gray-400">
-                                                        Email
+                                                        username
                                                     </label>
 
                                                 </div>
                                                 <div className='flex items-center'>
                                                 <input
-                                                    type="email"
+                                                    type="text"
                                                     name="email"
                                                     required
                                                     onChange={(e)=> setEmail(e.target.value)}
@@ -129,11 +129,11 @@ const Login = () => {
 
                                     </div>
                                     <div className="mt-4 flex items-center justify-end gap-x-2">
-                                        <Link to="/user-signup"
+                                        <Link to="/"
                                             className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-all hover:underline mr-3"
 
                                         >
-                                            Create New Account?
+                                            want to go back?
                                         </Link>
                                         <button
                                             className="font-semibold hover:bg-black hover:text-black hover:ring hover:ring-white transition duration-300 inline-flex items-center justify-center rounded-md text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-white text-black h-10 px-4 py-2"

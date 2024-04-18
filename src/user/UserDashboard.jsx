@@ -10,7 +10,7 @@ import { useUser } from '@clerk/clerk-react';
 import TaskListA2 from '../companyA/TaskListA2';
 import TaskList from '../videoCollection/TaskList';
 
-
+import ImageTaskList from '../imageCollection/TaskList'
 
 
 
@@ -123,7 +123,12 @@ const UserDashboard = () => {
             {/*  map of all tasks ( for this testing there will be only one ) */}
              <TaskListA email={email}></TaskListA>
              {/* <TaskListA2 email={email}></TaskListA2> */}
+             {/* video data collection task */}
              <TaskList email={email}></TaskList>
+
+             {/* image data collection task */}
+             <ImageTaskList email={email}></ImageTaskList>
+             
             
         </div>
     </div>

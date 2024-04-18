@@ -17,7 +17,9 @@ import UserLogin from "./user/Login"
 import UserSignup from "./user/Signup"
 import { RedirectToSignIn, SignedIn, SignedOut } from '@clerk/clerk-react'
 import RedirectToHome from './Helper/RedirectToHome'
-import Task from './videoCollection/Task'
+import VideoCollectionTask from './videoCollection/Task'
+
+import ImageCollectionTask from './imageCollection/Task'
 
 // testing
 
@@ -84,7 +86,24 @@ function App() {
           <Route path='/video-collection/task' element={
           <>
            <SignedIn>
-             <Task></Task>
+             <VideoCollectionTask></VideoCollectionTask>
+           </SignedIn>
+
+
+           <SignedOut>
+             <RedirectToHome></RedirectToHome>
+           </SignedOut>
+
+        
+          </>}  />
+
+
+
+          {/* image collection task */}
+          <Route path='/image-collection/task' element={
+          <>
+           <SignedIn>
+             <ImageCollectionTask></ImageCollectionTask>
            </SignedIn>
 
 
@@ -100,12 +119,14 @@ function App() {
           {/* <Route path='/companyA/exercise/TaskA' element={<><ExerciseTaskA></ExerciseTaskA></>} /> */}
 
           {/* auth routes */}
-          {/* <Route path='/signup' element={<Signup/>} />
-          <Route path='/login' element={<Login/>} /> */}
+          {/* <Route path='/signup' element={<Signup/>} /> */}
+
+
+          {/* <Route path='/login' element={<Login/>} /> */}
 
           {/* modified auth */}
-          {/* <Route path='/user-login' element={<> <UserLogin></UserLogin></>} />
-          <Route path='/user-signup' element={<> <UserSignup></UserSignup></>} /> */}
+          <Route path='/client-login' element={<> <UserLogin></UserLogin></>} />
+          {/* <Route path='/user-signup' element={<> <UserSignup></UserSignup></>} /> */}
          
 
          {/* test */}
