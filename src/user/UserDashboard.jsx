@@ -11,6 +11,7 @@ import TaskListA2 from '../companyA/TaskListA2';
 import TaskList from '../videoCollection/TaskList';
 
 import ImageTaskList from '../imageCollection/TaskList'
+import TaskListPotHoles from '../potHolesImgAnnotation/TaskList';
 
 
 
@@ -118,16 +119,22 @@ const UserDashboard = () => {
 
      <div className='flex items-center justify-center w-[100vw] mt-12'>
         {/* task list div */}
-        <div className=' lg:w-[45vw] md:w-[80vw] w-[90vw]'>
+        <div className=' lg:w-[45vw] md:w-[80vw] w-[90vw] mb-12'>
         {/* <p>{userEmail}</p> */}
             {/*  map of all tasks ( for this testing there will be only one ) */}
+
+             {/* image data collection task */}
+             <ImageTaskList email={email}></ImageTaskList>
+
              <TaskListA email={email}></TaskListA>
              {/* <TaskListA2 email={email}></TaskListA2> */}
              {/* video data collection task */}
              <TaskList email={email}></TaskList>
 
-             {/* image data collection task */}
-             <ImageTaskList email={email}></ImageTaskList>
+            
+
+              {/* image annotation task ( pot holes mark) */}
+              <TaskListPotHoles email={email}></TaskListPotHoles>
              
             
         </div>

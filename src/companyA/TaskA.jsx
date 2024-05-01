@@ -124,7 +124,7 @@ const TaskA = () => {
       const response = await axios.get(`${RENDER_API_URL}/api/random`);
 
       // condition to show spam tweet 
-      if (Math.random() < 0.26) {
+      if (Math.random() < 0.46) {
         const randomSpam = spamArr[Math.floor(Math.random() * spamArr.length)]
         setQuerry(randomSpam.tweet)
         setSpamFlag(true)

@@ -22,7 +22,7 @@ const TaskList = ({ email }) => {
 
         // console.log(tasks);
         setTasksData(tasks)
-       
+
 
         // Do something with the tasks data, e.g., display it in your UI
       })
@@ -41,40 +41,44 @@ const TaskList = ({ email }) => {
   //   // TODO: fetch user model from database and look for "tasks" field , in the task field look for "exerciseDone" field , if true then user can do the actuall task and set the red button as "start".
 
   // }, [])
- 
+
 
 
 
   return (
     <>
       {/* THIS IS MY USER DASHBOARD => TAKS LISTING UI */}
-      <div className=' mb-4 bg-white flex items-start justify-between  px-5 py-4 task-box-shadow rounded-[14px] '>
+      <div className='bg-white flex items-start justify-between  px-5 py-4 task-box-shadow rounded-[14px] gap-0'>
         {/* div 1 => title , btns  */}
-        <div className=' flex items-start flex-col justify-between gap-3'>
-          <b className='text-[21px]'>Upload Image</b>
-          {/* <div className='flex items-center justify-center gap-4 text-[19px]'>
+        <div className=' flex items-start flex-col justify-between gap-3  w-[35%]'>
+          <b className='text-[21px]'>Draw Box Around Pot Holes </b>
+          <div className='flex items-center justify-center gap-4 text-[19px]'>
             <FaEye className='text-gray-600'></FaEye>
             <Link to="/companyA/exercise/TaskA"><FaDumbbell className='text-gray-600'></FaDumbbell></Link>
             <CiBookmarkCheck></CiBookmarkCheck>
             <VscFeedback></VscFeedback>
-          </div> */}
-          <span class="inline-flex items-center rounded-md bg-gray-300 px-2 py-1 text-xs font-medium text-gray-800 ring-1 ring-inset ring-gray-900/10">Image Collection</span>
+
+          </div>
+          <span className="inline-flex items-center rounded-md bg-purple-50 px-2 py-1  text-xs font-medium text-orange-700 ring-1 ring-inset ring-purple-700/10">
+            Image Annotation
+          </span>
           {/* only show this when user is qualified to do the task, that is after training and qualifying process */}
           {/* <Link to='/companyA/TaskA'><button className='bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded'>Start </button></Link> */}
 
           {
-            tasksData[0]?.exerciseDone ? ( <Link to='/image-collection/task'><button className='bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded'>Start </button></Link>) : 
-            ( <Link to='/companyA/exercise/TaskA'><button className='bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded'>Exercise </button></Link>)
+            tasksData[0]?.exerciseDone ? (<Link to='/image-annotatio/pot-holes-task'><button className='bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded'>Start </button></Link>) :
+              (<Link to='/image-annotatio/pot-holes-task'><button className='bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded'>Exercise </button></Link>)
           }
         </div>
 
         {/* div 2 => discription , tips   */}
         <div className='text-justify  lg:w-[70%] flex items-start justify-start flex-col gap-4'>
-          <p>Help train an AI model by upload image of physically defective electronic items</p>
+          <p>
+            Your task involves evaluting an image and marking out potholes by drawing a bounding box around them on the road surface.</p>
           <div className='flex items-start justify-center gap-8'>
-            <p>Earn : <b>20 Rs/Task</b></p>
-            <p>Task : <b>2</b></p>
-            <p>Time : <b>15 min</b></p>
+            <p>Earn : <b>1.33 Rs/Task</b></p>
+            <p>Task : <b>300</b></p>
+            <p>Time : <b>30 sec</b></p>
           </div>
         </div>
       </div>

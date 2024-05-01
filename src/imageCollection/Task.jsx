@@ -29,13 +29,11 @@ const Task = () => {
         {/* top page nav ends */}
 
         {/* main div */}
-        <div className='flex items-start justify-center gap-5 '>
+        <div className='flex items-start justify-center gap-5 text-[19px] '>
           {/* instructons section */}
           <div className='grey-bg rounded-[8px] w-[50%] p-3'>
             <p className='font-semibold text-red-700'>Goal</p>
-            <p>The client provides 3D-authentication security check tools for companies to prevent fraud in the Internet.
-
-              For the improvement of these applications training data is needed.
+            <p className=''>Our client is developing advanced image recognition technology to identify and classify physically defective electronic items. To enhance the accuracy of their AI.
               </p>
 
 
@@ -44,10 +42,10 @@ const Task = () => {
               </p> */}
               <p className='mt-2'>
                  <ul>
-                  <li>1. Use your web cam</li>
-                  <li>2. Make sure your face is clearly visible</li>
-                  <li>3. Look staright then slowly tilt your face to left</li>
-                  <li>4. Look staright then slowly tilt your face to right</li>
+                  <li>1.Use your smartphone camera or any digital camera.</li>
+                  <li>2.Ensure the electronic item with a physical defect is clearly visible in the frame.</li>
+                  <li>3. Capture the image from the front, showing the defect prominently.</li>
+                  <li>4.Capture the image from different angles to fully showcase the extent and nature of the defect.</li>
 
                  </ul>
               </p>
@@ -64,6 +62,18 @@ const Task = () => {
               </p>
               <p> Field of use : <b>Training of AI</b>
               </p>
+
+
+           {/* example */}
+           <p className='font-semibold text-red-700 mt-4'>Example</p>
+            <p className='mb-3'> Here's an example of the task
+              </p>
+               <div className='flex items-center justify-start gap-3'>
+               <img className='w-[200px] h-[200px]' src="https://res.cloudinary.com/dvwjzeupe/image/upload/v1714396767/electronic%20items/Screenshot_2024-04-29_184630_gtn5fq.png" alt="" />
+               <img className='w-[200px] h-[200px]' src="https://res.cloudinary.com/dvwjzeupe/image/upload/v1714396761/electronic%20items/Screenshot_2024-04-29_184342_hso2pk.png" alt="" />
+               <img className='w-[200px] h-[200px]' src="https://res.cloudinary.com/dvwjzeupe/image/upload/v1714396754/electronic%20items/Screenshot_2024-04-29_184208_ztg4de.png" alt="" />
+               </div>
+             
 
           </div>
           {/* upload section */}

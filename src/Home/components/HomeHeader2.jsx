@@ -32,27 +32,27 @@ import {
  
 const navListMenuItems = [
   {
-    title: "Products",
+    title: "Text Annotation",
     description: "Find the perfect solution for your needs.",
     icon: SquaresPlusIcon,
   },
   {
-    title: "About Us",
+    title: "Image Annotation",
     description: "Meet and learn about our dedication",
     icon: UserGroupIcon,
   },
   {
-    title: "Blog",
+    title: "Video Annotation",
     description: "Find the perfect solution for your needs.",
     icon: Bars4Icon,
   },
   {
-    title: "Services",
+    title: "Audio Annotation",
     description: "Learn how we can help you achieve your goals.",
     icon: SunIcon,
   },
   {
-    title: "Support",
+    title: "Data Collection",
     description: "Reach out to us for assistance or inquiries",
     icon: GlobeAmericasIcon,
   },
@@ -62,18 +62,18 @@ const navListMenuItems = [
     icon: PhoneIcon,
   },
   {
-    title: "News",
+    title: "Blogs",
     description: "Read insightful articles, tips, and expert opinions.",
     icon: NewspaperIcon,
   },
   {
-    title: "Products",
+    title: "Surveys",
     description: "Find the perfect solution for your needs.",
     icon: RectangleGroupIcon,
   },
   {
-    title: "Special Offers",
-    description: "Explore limited-time deals and bundles",
+    title: "About Us",
+    description: "Learn more about our history, services and work culture.",
     icon: TagIcon,
   },
 ];
@@ -167,7 +167,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <Link to="/user-login"><ListItem className="flex items-center gap-2 py-2 pr-4 text-white">Earn Money</ListItem></Link>
+        <Link to="/"><ListItem className="flex items-center gap-2 py-2 pr-4 text-white">Earn Money</ListItem></Link>
       </Typography>
       <NavListMenu />
       <Typography
